@@ -1,0 +1,255 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;400;500;700&display=swap');
+
+/* Resetowanie marginesów */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+/* Tło */
+body {
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    background: url('background.svg') no-repeat center center fixed;
+    background-size: cover;
+}
+
+/* Nawigacja */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: transparent;
+    backdrop-filter: none;
+    padding: 15px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    transition: background 0.3s ease-in-out, backdrop-filter 0.3s ease-in-out;
+}
+
+.navbar a {
+    font-family: 'Orbitron', sans-serif;
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    margin: 0 20px;
+    padding: 8px 15px;
+    border-radius: 8px;
+    transition: all 0.3s ease-in-out;
+}
+
+.navbar a:hover {
+    background: rgba(255, 255, 255, 0.2);
+    color: #00cc66;
+}
+
+/* Efekt zmiany koloru po scrollu */
+.navbar.scrolled {
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(5px);
+}
+
+/* Sekcja główna */
+.intro-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Zdjęcie profilowe */
+.profile-pic {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.6);
+    filter: brightness(0.85) contrast(1.1);
+    transition: transform 0.3s ease-in-out;
+    object-fit: cover;
+    margin-bottom: 20px;
+}
+
+.profile-pic:hover {
+    transform: scale(1.05);
+}
+
+/* Animowany tekst */
+#typed-text {
+    font-size: 3.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #93279d;
+    text-shadow: 2px 2px 10px rgba(8, 33, 23, 0.5);
+    font-family: 'Orbitron', sans-serif;
+    text-decoration: none; /* Wyłączamy podkreślenie */
+    border-bottom: none; /* Wyłączamy dodatkowe podkreślenie */
+}
+
+
+/* Portfolio */
+.portfolio-container {
+    position: relative;
+    max-width: 1000px;
+    margin: auto;
+    overflow: hidden;
+}
+
+.portfolio-slider {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.portfolio-item {
+    flex: 0 0 30%;
+    margin: 10px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    height: 300px;
+}
+
+/* Slider */
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    font-size: 24px;
+}
+
+.prev { left: 10px; }
+.next { right: 10px; }
+
+/* Unoszące się ikonki */
+.floating-icons {
+    position: fixed;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.floating-icons a {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+}
+
+.floating-icons a img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.floating-icons a:hover {
+    transform: scale(1.2);
+}
+
+/* Formularz kontaktowy */
+.contact-form {
+    max-width: 500px;
+    margin: auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    text-align: center;
+}
+
+.contact-form input, .contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: none;
+    border-radius: 5px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.contact-form button {
+    background: #00cc66;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Menu rozwijane na telefonie */
+@media (max-width: 768px) {
+    /* Ukrywamy domyślnie linki menu */
+    .navbar-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.9);
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding-top: 80px; /* Odstęp od góry */
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .navbar-links a {
+        padding: 15px 20px;
+        text-align: center;
+        width: 100%;
+        color: white;
+        border-top: 1px solid rgba(255, 255, 255, 0.3);
+        transition: background-color 0.3s ease;
+    }
+
+    .navbar-links a:hover {
+        background-color: #00cc66;
+    }
+
+    /* Pokaż hamburgera na telefonach */
+    .hamburger {
+        display: block;
+        cursor: pointer;
+        color: white;
+        font-size: 30px;
+        padding: 10px;
+        background: none;
+        border: none;
+        z-index: 1001;
+    }
+
+    .hamburger span {
+        display: block;
+        width: 30px;
+        height: 4px;
+        background-color: white;
+        margin: 6px auto;
+        border-radius: 5px;
+    }
+
+    /* Menu po kliknięciu */
+    .navbar.open .navbar-links {
+        display: flex;
+        transform: translateY(0);
+    }
+
+    /* Zmniejszenie rozmiaru zdjęcia i tekstu na telefonach */
+    .profile-pic {
+        width: 150px;
+        height: 150px;
+    }
+
+    #typed-text {
+        font-size: 2.5rem;
+    }
+}
